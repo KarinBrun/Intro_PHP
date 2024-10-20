@@ -54,10 +54,10 @@
         <?php
             //put the loop that processes the database result and outputs the content as an HTML table
             while($eventRow = $stmt->fetch()){
-                echo "<tr>"
+                echo "<tr>";
                 echo "<td>" . $eventRow["events_name"] . "</td>";
                 echo "<p>" . $eventRow["events_description"] . "</p>";
-                echo "</tr>"
+                echo "</tr>";
             }
         ?>
     </table>
