@@ -14,12 +14,18 @@
     try{
         require 'dbConnect.php';    //access to the database
 
-        $sql = "SELECT events_name, events_description FROM wdv341_events WHERE events_id = 1";
+        //$sql = "SELECT events_name, events_description FROM wdv341_events WHERE events_id = 1";
+
+        //pass the desired record id as a parameter
+        $sql = "SELECT events_name, events_description FROM wdv341_events WHERE events_id = :eventsID";     //named parameter
 
         //prepared statement PDO
         $stmt = $conn->prepare($sql);   //prepared statement PDO - returns statement object
 
-        //bind parameters - n/a
+        //bind parameters
+        $eventsID = 2;
+        $stmt->bindParam(":eventsID", $eventsID);
+
 
         $stmt->execute();   //execute the PDO prepared statment, save results in $stmt object
 
@@ -56,7 +62,7 @@
             while($eventRow = $stmt->fetch()){
                 echo "<tr>";
                 echo "<td>" . $eventRow["events_name"] . "</td>";
-                echo "<p>" . $eventRow["events_description"] . "</p>";
+                echo "<td>" . $eventRow["events_description"] . "</td>";
                 echo "</tr>";
             }
         ?>
