@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>WDV341 Intro PHP</h1>
+    <h2>Unit-9 INSERT - Input form sends data to the database</h2>
+    <form method="post" action="insertEvent.php">
+        
+        <p>
+            <label for="inEventName">Event Name:</label>
+            <input type="text" name="events_name" id="events_name" placeholder="Event Name">
+        </p>
+
+        <p>
+            <label for="inEventDesc">Event Description</label>
+            <input type="text" name="events_description" id="events_description">
+        </p>
+
+        <p>
+            <label for="inEventPresenter">Event Presenter:</label>
+            <input type="text" name="events_presenter" id="events_presenter" placeholder="Event Presenter">
+        </p>
+
+        <p>
+            <label for="inEventDate">Event Date:</label>
+            <input type="date" name="events_date" id="events_date" placeholder="Event Date">
+        </p>
+
+        <p>
+            <label for="inEventTime">Event Time:</label>
+            <input type="time" name="events_time" id="events_time" placeholder="Event Time">
+        </p>
+        <p>
+            <input type="submit">
+            <input type="reset">
+        </p>
+
+    </form>
+</body>
+</html>
