@@ -1,3 +1,25 @@
+<?php
+
+    try{
+        require 'dbConnect.php';    //access to the database
+
+        $sql = "SELECT product_id, product_name, product_description, product_price, product_image, product_inStock, product_status, product_update_date FROM wdv341_products ORDER BY product_name DESC";
+
+        //prepared statement PDO
+        $stmt = $conn->prepare($sql);   //prepared statement PDO - returns statement object
+
+        //bind parameters - n/a
+
+        $stmt->execute();   //execute the PDO prepared statment, save results in $stmt object
+
+        $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);    //return values as an ASSOC array
+    }
+    catch(PDOException $e){
+        echo "Database Failed" . $e->getMessage();
+    }
+
+?>
+
 <!doctype html>
 <html>
 
@@ -18,22 +40,21 @@
         <h1>DMACC Electronics Store!</h1>
         <p>Products for your Home and School Office</p>
     </header>
-    <section>
-        <!-- This .productBlock is an example displaying the format/structure of each product.
-        It will be replaced by the actual data. Please loop through all of your products and display them using
-        this layout and following the instructions of the assignment. -->
 
-        <div class="productBlock">
-            <div class="productImage">
-                <image src="productImages/monitor.jpg">
-            </div>
-            <p class="productName">New 27" Monitor</p>
-            <p class="productDesc">This is a new monitor. Available for desktop uses. A good choice for home office and school work.</p>
-            <p class="productPrice">$159.00</p>
-            <!-- The productStatus element should only be displayed if there is product_status data in the record -->
-            <p class="productStatus">New Item!</p>            
-            <p class="productInventory"># In Stock!</p>
-        </div>
+    <section>
+        <?php while($productRow = $stmt->fetch()){
+            echo '<div class="productBlock">';
+                echo '<div class="productImage">';
+                    echo '<image src=" productImages/' . $productRow["product_image"] . ' ">';
+                echo '</div>';
+                echo '<p class="productName">' . $productRow["product_name"] . '</p>';
+                echo '<p class="productDesc">' . $productRow["product_description"] . '</p>';
+                echo '<p class="productPrice">' . $productRow["product_price"] . '</p>';
+                echo '<p class="productStatus">' . $productRow["product_status"] . '</p>';
+                $inventoryClass = ($productRow["product_inStock"]<=10) ? ('productLowInventory') : (' '); 
+                echo '<p class="productInventory '. $inventoryClass .' ">' . $productRow["product_inStock"] . ' In Stock!</p>';
+            echo '</div>';
+        } ?>
     </section>
 
 </body>
