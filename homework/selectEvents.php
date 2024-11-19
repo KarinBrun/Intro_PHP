@@ -55,6 +55,7 @@
                 echo "<tr>";
                 echo "<td>" . $eventRow["events_name"] . "</td>";
                 echo "<td>" . $eventRow["events_description"] . "</td>";
+                echo "<td><button>Delete</button></td>";
                 echo "</tr>";
             }
         ?>

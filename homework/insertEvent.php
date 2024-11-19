@@ -1,4 +1,9 @@
 <?php
+session_start();    //gives us access to a session, or starts a new one if needed
+if($_SESSION['validSession'] !== "yes"){
+    //you are NOT a valid user and CANNOT access this page
+    header('Location: login.php');
+}
 
     //a. get the form data from the $_POST into variables
     //1. connect to the database
