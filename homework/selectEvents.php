@@ -83,6 +83,7 @@
                 echo "<td>" . $eventRow["events_name"] . "</td>";
                 echo "<td>" . $eventRow["events_description"] . "</td>";
                 //echo "<td><a href='deleteEvents.php?eventsID=" . $eventRow['events_id'] . "'><button>Delete</button></a></td>";
+                echo "<td><a href='updateEvents.php?eventsID=" . $eventRow['events_id'] . "'><button>Update</button></a></td>";
                 echo "<td><button onclick='confirmDelete(" . $eventRow['events_id'] . ")'>Delete</button></td>";
                 echo "</tr>";
             }
