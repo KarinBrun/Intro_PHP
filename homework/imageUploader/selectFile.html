@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        form p:nth-child(2) {
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <h1>WDV341 Intro PHP</h1>
@@ -13,6 +18,10 @@
         <p>
             <label for="inFileName">File Name: </label>
             <input type="text" name="inFileName" id="inFileName" placeholder="File name on server">
+        </p>
+        <p>
+            <label for="inFileType">File Type: </label>
+            <input type="text" name="inFileType" id="inFileType">
         </p>
         <p>
             <label for="inFile">Select a File: </label>

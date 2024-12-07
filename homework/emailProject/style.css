@@ -67,3 +67,7 @@ footer {
     background-color: #102542;
     color: #FFFFFF;
 }
+
+#subject {
+    display: none;
+}

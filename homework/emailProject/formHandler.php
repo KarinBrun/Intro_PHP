@@ -6,6 +6,15 @@ $reason = $_POST["reason"];
 $comment = $_POST["message"];
 $today = date('m/d/Y');
 
+//honeypot
+$subject = $_POST['subject'];
+if($subject === "Subject"){
+    //honeypot is empty
+}
+else{
+    die("Die Bot Die");
+}
+
 
 $to = "$email";
 $subject = "Thank you for contacting us!";

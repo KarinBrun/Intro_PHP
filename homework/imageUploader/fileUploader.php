@@ -1,5 +1,14 @@
 <?php
 
+    //honeypot
+    $inFileType = $_POST['inFileType'];
+    if($inFileType === ""){
+        //honeypot is empty
+    }
+    else{
+        die("Die Bot Die");
+    }
+
     $hostImageFolder = "uploadedImages/";
 
     echo basename($_FILES["inFile"]["name"]);
